@@ -164,13 +164,14 @@ GitHub Repository:
   - **Knowledge Graph Representation:**
     ```mermaid
     graph TD
-      A[Loop Condition] -->|Evaluates| B{count < n}
-      B -->|True| C[Loop Body]
-      B -->|False| D[Loop Exit Logic]
-      C -->|Executes| E[print count]
-      C -->|Updates| F[count += 1]
-      C -->|Repeats| A
-      D -->|Terminates Loop| G[End]
+      Loop[Loop Structure] -->|has| Condition[Loop Condition]
+      Loop -->|has| Body[Loop Body]
+      Loop -->|has| Exit[Loop Exit Logic]
+    
+      Condition -->|evaluates| Expression[count < n]
+      Body -->|contains| Print[Print Statement]
+      Body -->|updates| Increment[Variable Increment]
+      Exit -->|triggers| Termination[Loop Termination]
     ```
 
 ## **🔹 Step 3: Code Reconstruction & Generation**
