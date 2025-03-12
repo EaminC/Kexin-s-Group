@@ -102,21 +102,21 @@ To overcome GNN's locality limitations, the paper proposes **two hybrid models**
 GitHub Repository:  
 🔗 [https://github.com/VHellendoorn/ICLR20-Great](https://github.com/VHellendoorn/ICLR20-Great)
 
-
-
 # Code Transformation System with Knowledge Graph & Agent Reflection
 
 ## **🔹 Step 1: Code Parsing & Knowledge Graph Construction**
 
-- **SYMC processes the code and generates labels**  
+- **SYMC processes the code and generates labels**
+
   - Identifies function calls, variable dependencies, control flows, etc.
-  - Example:  
+  - Example:
     ```python
     def add(a, b): return a + b
     ```
     → Label: `"Addition Function"`
 
 - **Construct Knowledge Graph (KG)**
+
   - Store function names → semantic labels, code relationships (calls, inheritance, dependencies)
   - Example:
     ```
@@ -133,7 +133,7 @@ GitHub Repository:
     ```
 
 - **Decomposing Code into Knowledge Graph Units**
-  - The function is broken into components: 
+  - The function is broken into components:
     - Function definition
     - Variable initialization
     - Control structures (loops, conditionals)
@@ -146,6 +146,7 @@ GitHub Repository:
     ```
 
 ## **🔹 Step 2: Code Decomposition & Knowledge Storage**
+
 - **Each code block is identified and stored with its SYMC-generated labels**
 - **Example: Loop Structure Decomposition**
   - **Given input code:**
@@ -220,9 +221,9 @@ GitHub Repository:
 
 ### **Key Features of This Design:**
 
-1. **SYMC-based Knowledge Graph (KG)** → Stores decomposed code units and semantic labels  
-2. **Agent-Controlled Generation** → Stepwise construction and validation of code  
-3. **Black-box Model (GNN/LLM)** → Ensures semantic equivalence while allowing stylistic changes  
-4. **Error Handling & Adaptation** → Iterative refinement with feedback loops  
+1. **SYMC-based Knowledge Graph (KG)** → Stores decomposed code units and semantic labels
+2. **Agent-Controlled Generation** → Stepwise construction and validation of code
+3. **Black-box Model (GNN/LLM)** → Ensures semantic equivalence while allowing stylistic changes
+4. **Error Handling & Adaptation** → Iterative refinement with feedback loops
 
 This design ensures **modular, explainable, and optimized code transformation**, combining **deep learning, structured knowledge storage, and agent-driven control.** 🚀
