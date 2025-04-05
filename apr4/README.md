@@ -833,27 +833,26 @@ Best result comes from gpt4o so maybe trying it after got some api-keys
 import json
 import requests
 from human_eval.data import write_jsonl, read_problems
-from tqdm import tqdm  # 导入 tqdm
+from tqdm import tqdm  
 
-# 从 human_eval 中读取问题数据
+
 problems = read_problems()
 
-# 设置每个任务要生成的样本数
+
 num_samples_per_task = 2
 
-# API 地址（本地部署）
+
 api_url = "http://localhost:8000/v1/chat/completions"
 
-# 定义生成一个 completion 的函数
+
 def generate_one_completion(prompt):
-    # 请求体内容
+
     data = {
         "model": "meta-llama/Llama-3.1-8B-Instruct",
         "messages": [{"role": "user", "content": prompt}],
         "max_tokens": 100
     }
     
-    # 发送 POST 请求到 API
     response = requests.post(api_url, headers={"Content-Type": "application/json"}, json=data)
     
     if response.status_code == 200:
@@ -863,7 +862,7 @@ def generate_one_completion(prompt):
         print(f"Error: {response.status_code}")
         return None
 
-# 生成样本并使用 tqdm 显示进度
+
 samples = []
 for task_id in tqdm(problems, desc="Processing tasks", unit="task"):
     for _ in range(num_samples_per_task):
@@ -873,7 +872,7 @@ for task_id in tqdm(problems, desc="Processing tasks", unit="task"):
             "completion": completion
         })
 
-# 保存为 JSONL 文件
+
 write_jsonl("samples.jsonl", samples)
 ```
 
