@@ -6,7 +6,7 @@ For default ,i run`llama-3.1-8B-Instruct`on `vllm`
 
 For most cases, figured out how to switch to open/claude api or other open sources models
 
-Only havent figure out the easist way to switch `SWE-agent` from ollam to `vllm`
+Only havent figure out the easist way to switch `SWE-agent` from ollam to `vllm`(its quite dirty fixed for now)
 
 
 
